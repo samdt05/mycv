@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CV cá nhân - Frontend Developer">
+  <title>CV - Nguyễn Văn A | Frontend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile">
+        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=NguyenVanA" alt="Avatar" class="avatar">
+        <h1 class="name">Nguyễn Văn A</h1>
+        <p class="title">Frontend Developer</p>
+        <div class="location">📍 Hà Nội, Việt Nam</div>
+      </div>
+
+      <nav class="contact">
+        <h2>Liên hệ</h2>
+        <ul>
+          <li><a href="mailto:nguyenvana@email.com">✉ nguyenvana@email.com</a></li>
+          <li><a href="tel:+84901234567">📞 +84 901 234 567</a></li>
+          <li><a href="https://github.com/samdt05" target="_blank">💻 github.com/samdt05</a></li>
+          <li><a href="https://linkedin.com/in/nguyenvana" target="_blank">🔗 linkedin.com/in/nguyenvana</a></li>
+          <li><a href="https://samdt05.github.io" target="_blank">🌐 samdt05.github.io</a></li>
+        </ul>
+      </nav>
+
+      <section class="skills">
+        <h2>Kỹ năng</h2>
+        <div class="skill-group">
+          <h3>Frontend</h3>
+          <ul class="tags">
+            <li>HTML5 / CSS3</li>
+            <li>JavaScript (ES6+)</li>
+            <li>TypeScript</li>
+            <li>React / Next.js</li>
+            <li>Vue.js / Nuxt</li>
+            <li>Tailwind CSS</li>
+            <li>Styled Components</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Tools & Workflow</h3>
+          <ul class="tags">
+            <li>Git / GitHub</li>
+            <li>Vite / Webpack</li>
+            <li>ESLint / Prettier</li>
+            <li>Jest / Vitest</li>
+            <li>Cypress</li>
+            <li>Figma</li>
+            <li>CI/CD (GitHub Actions)</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Backend / Other</h3>
+          <ul class="tags">
+            <li>Node.js / Express</li>
+            <li>REST API / GraphQL</li>
+            <li>PostgreSQL / MongoDB</li>
+            <li>Docker</li>
+            <li>AWS / Vercel</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="languages">
+        <h2>Ngoại ngữ</h2>
+        <ul>
+          <li><span>Tiếng Việt</span> <span class="level">Native</span></li>
+          <li><span>English</span> <span class="level">IELTS 7.0</span></li>
+          <li><span>Japanese</span> <span class="level">N3</span></li>
+        </ul>
+      </section>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <section class="summary">
+        <h2>Mục tiêu nghề nghiệp</h2>
+        <p>
+          Frontend Developer có <strong>3+ năm kinh nghiệm</strong> xây dựng ứng dụng web hiện đại,
+          tập trung vào performance, accessibility và developer experience.
+          Đam mê clean code, component-driven development và luôn cập nhật công nghệ mới.
+          Tìm kiếm vị trí <strong>Senior Frontend / Tech Lead</strong> để đóng góp giá trị thực sự cho sản phẩm.
+        </p>
+      </section>
+
+      <section class="experience">
+        <h2>Kinh nghiệm làm việc</h2>
+
+        <article class="job">
+          <header>
+            <div>
+              <h3>Senior Frontend Developer</h3>
+              <p class="company">Công ty TNHH TechCorp Việt Nam</p>
+            </div>
+            <time>03/2022 – Nay</time>
+          </header>
+          <ul class="achievements">
+            <li>Dẫn dắt team 4 dev xây dựng <strong>design system</strong> nội bộ (50+ components), giảm 40% thời gian dev UI mới</li>
+            <li>Tối ưu bundle size từ 2.1MB → 680KB (code-splitting, tree-shaking, lazy loading), cải thiện LCP 2.8s → 1.2s</li>
+            <li>Thiết kế architecture micro-frontend với Module Federation, cho phép deploy độc lập các feature</li>
+            <li>Mentor 2 junior dev, thiết lập code review standards, CI/CD pipeline tự động</li>
+            <li>Stack: React, TypeScript, Next.js, Tailwind, Storybook, Jest, Cypress, GitHub Actions</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <header>
+            <div>
+              <h3>Frontend Developer</h3>
+              <p class="company">Startup Fintech - FinTechVN</p>
+            </div>
+            <time>06/2020 – 02/2022</time>
+          </header>
+          <ul class="achievements">
+            <li>Xây dựng dashboard real-time cho 10k+ users hàng ngày với WebSocket + Redux Toolkit</li>
+            <li>Implement authentication flow (OAuth2, JWT, refresh token, MFA) bảo mật PCI-DSS</li>
+            <li>Chuyển đổi từ Vue 2 → Vue 3 + Composition API, giảm 30% bundle size</li>
+            <li>Thiết lập unit test coverage > 85%, e2e test cho critical user flows</li>
+            <li>Stack: Vue 3, Pinia, Vite, Chart.js, Docker, AWS Amplify</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <header>
+            <div>
+              <h3>Junior Frontend Developer (Thực tập)</h3>
+              <p class="company">Digital Agency - CreativeMinds</p>
+            </div>
+            <time>01/2020 – 05/2020</time>
+          </header>
+          <ul class="achievements">
+            <li>Phát triển landing page, marketing site cho 10+ client (responsive, SEO-friendly)</li>
+            <li>Học và áp dụng: Semantic HTML, BEM, Sass, GSAP animation, GSAP ScrollTrigger</li>
+            <li>Hỗ trợ setup WordPress theme tùy chỉnh, tích hợp ACF cho content management</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="projects">
+        <h2>Dự án nổi bật</h2>
+
+        <article class="project">
+          <div class="project-info">
+            <h3><a href="https://github.com/samdt05/task-manager" target="_blank">TaskFlow — Task Management App</a></h3>
+            <p class="desc">Ứng dụng quản lý task real-time cho team, inspiré từ Linear/Notion.</p>
+            <div class="tech">Next.js 14 · TypeScript · Prisma · PostgreSQL · Tailwind · tRPC · NextAuth</div>
+          </div>
+          <ul class="highlights">
+            <li>Drag-and-drop board (dnd-kit), real-time sync với Socket.io</li>
+            <li>Role-based access control (Admin/Member/Viewer), audit log</li>
+            <li>Deploy Vercel + Railway, CI/CD full automated</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <div class="project-info">
+            <h3><a href="https://github.com/samdt05/ui-kit" target="_blank">UI Kit — Component Library</a></h3>
+            <p class="desc">Thư viện component reusable, accessible (WCAG 2.1 AA), document với Storybook.</p>
+            <div class="tech">React · TypeScript · Styled Components · Storybook · Chromatic · Changesets</div>
+          </div>
+          <ul class="highlights">
+            <li>40+ components: Button, Input, Select, Modal, Table, Tooltip, DatePicker...</li>
+            <li>Themeable (light/dark), RTL support, compound components pattern</li>
+            <li>Publish npm private registry, versioning tự động với Changesets</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <div class="project-info">
+            <h3><a href="https://github.com/samdt05/ecommerce-pwa" target="_blank">ShopPWA — E-commerce PWA</a></h3>
+            <p class="desc">Progressive Web App thương mại điện tử offline-first, performance 95+ Lighthouse.</p>
+            <div class="tech">Vue 3 · Vite · Pinia · Workbox · IndexedDB · Stripe API</div>
+          </div>
+          <ul class="highlights">
+            <li>Offline cart, background sync khi online lại, push notification</li>
+            <li>Image optimization (WebP, lazy load, blur placeholder)</li>
+            <li>Checkout flow tích hợp Stripe, Apple Pay, Google Pay</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="education">
+        <h2>Giáo dục</h2>
+        <div class="edu-item">
+          <div>
+            <h3>Kỹ sư Khoa học Máy tính</h3>
+            <p class="school">Đại học Bách Khoa Hà Nội (HUST)</p>
+          </div>
+          <time>2016 – 2020</time>
+        </div>
+        <div class="edu-item">
+          <div>
+            <h3>Chứng chỉ AWS Certified Developer – Associate</h3>
+            <p class="school">Amazon Web Services</p>
+          </div>
+          <time>2023</time>
+        </div>
+        <div class="edu-item">
+          <div>
+            <h3>Chứng chỉ Google UX Design Professional Certificate</h3>
+            <p class="school">Coursera / Google</p>
+          </div>
+          <time>2022</time>
+        </div>
+      </section>
+
+      <section class="activities">
+        <h2>Hoạt động & Giải thưởng</h2>
+        <ul>
+          <li><strong>Top 10</strong> Vietnam Tech Challenge 2023 (Team lead)</li>
+          <li>Speaker tại <strong>React Meetup Hanoi #15</strong>: "Micro-frontend trong thực tế"</li>
+          <li>Contributorを開源: <a href="https://github.com/vuejs/core" target="_blank">vuejs/core</a>, <a href="https://github.com/tailwindlabs/tailwindcss" target="_blank">tailwindcss</a></li>
+          <li>Viết blog technical tại <a href="https://samdt05.github.io" target="_blank">samdt05.github.io</a> (15+ bài, 50k+ views)</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>Được xây dựng với HTML, CSS thuần túy — không framework, không JS runtime. Deploy miễn phí trên GitHub Pages.</p>
+    <p><a href="https://github.com/samdt05/mycv" target="_blank">Xem source code</a> • Cập nhật lần cuối: <span id="last-updated"></span></p>
+  </footer>
+
+  <script>
+    document.getElementById('last-updated').textContent = new Date().toLocaleDateString('vi-VN');
+  </script>
+</body>
+</html>

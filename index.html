@@ -3,235 +3,368 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CV cá nhân - Frontend Developer">
-  <title>CV - Nguyễn Văn A | Frontend Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <title>CV - Đặng Thị Sâm</title>
+  <style>
+    :root {
+      --navy: #3d5986;
+      --navy-dark: #304b76;
+      --left-bg: #dce6ec;
+      --page-bg: #f7f9fa;
+      --text: #30343a;
+      --muted: #4c5055;
+      --line: #45669b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      background: #e9edf0;
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .cv {
+      width: min(100%, 1000px);
+      min-height: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      background: var(--page-bg);
+      box-shadow: 0 8px 32px rgba(26, 44, 66, 0.14);
+      overflow: hidden;
+    }
+
+    .sidebar {
+      position: relative;
+      padding: 36px 28px 34px;
+      background:
+        linear-gradient(115deg, rgba(188, 215, 229, .6), transparent 35%),
+        linear-gradient(65deg, rgba(255,255,255,.35), transparent 45%),
+        var(--left-bg);
+    }
+
+    .main {
+      padding: 36px 32px 34px;
+      background:
+        linear-gradient(145deg, rgba(229, 238, 243, .35), transparent 45%),
+        var(--page-bg);
+    }
+
+    .profile {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .avatar-wrap {
+      width: 220px;
+      height: 220px;
+      max-width: 100%;
+      margin: 0 auto 18px;
+      border: 12px solid #fff;
+      border-radius: 50%;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .avatar {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+
+    .name {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1.25;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .role {
+      margin: 7px 0 14px;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    .section {
+      margin-top: 22px;
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      padding: 5px 8px 6px;
+      background: var(--navy);
+      color: #fff;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 16px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .contact-list li {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 7px;
+      align-items: start;
+      margin: 8px 0;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-icon {
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      text-align: center;
+      color: #292f36;
+    }
+
+    .timeline {
+      position: relative;
+      margin: 0 0 0 4px;
+      padding: 0 0 0 17px;
+      border-left: 1px solid var(--line);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin: 0 0 19px;
+    }
+
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -22px;
+      top: 4px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--line);
+    }
+
+    .timeline-item p { margin: 5px 0; }
+    .timeline-item strong { font-weight: 700; }
+
+    .date {
+      font-weight: 700;
+      margin-top: 7px !important;
+    }
+
+    .main .section {
+      margin-top: 0;
+      margin-bottom: 18px;
+    }
+
+    .main .section-title {
+      text-align: left;
+      padding-left: 19px;
+      margin-bottom: 10px;
+    }
+
+    .main p {
+      margin: 0;
+      text-align: justify;
+    }
+
+    .skill-list {
+      list-style: none;
+      padding: 0 0 0 18px;
+      margin: 0;
+    }
+
+    .skill-list li {
+      position: relative;
+      margin: 1px 0;
+    }
+
+    .skill-list li::before {
+      content: "•";
+      position: absolute;
+      left: -15px;
+    }
+
+    .project-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .project-heading .date-range {
+      white-space: nowrap;
+      font-size: 12px;
+    }
+
+    .subheading {
+      font-weight: 700;
+      margin: 6px 0 !important;
+    }
+
+    .muted { color: var(--muted); }
+
+    @media (max-width: 720px) {
+      body { padding: 0; }
+      .cv {
+        grid-template-columns: 1fr;
+        min-height: 0;
+      }
+      .sidebar, .main { padding: 28px 22px; }
+      .avatar-wrap { width: 190px; height: 190px; }
+      .name { font-size: 23px; }
+      .role { font-size: 18px; }
+    }
+
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { padding: 0; background: #fff; }
+      .cv {
+        width: 100%;
+        max-width: none;
+        min-height: 297mm;
+        box-shadow: none;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+      .sidebar, .main { padding-top: 10mm; padding-bottom: 10mm; }
+      .section, .timeline-item { break-inside: avoid; }
+    }
+  </style>
 </head>
 <body>
-  <div class="page">
-    <!-- Sidebar -->
+  <div class="cv">
     <aside class="sidebar">
-      <div class="profile">
-        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=NguyenVanA" alt="Avatar" class="avatar">
-        <h1 class="name">ĐẶNG THỊ SÂM</h1>
-        <p class="title">Frontend Developer</p>
-        <div class="location">📍 Thái Nguyên, Việt Nam</div>
-      </div>
+      <header class="profile">
+        <div class="avatar-wrap">
+          <!-- Đổi đường dẫn bên dưới thành vị trí ảnh trong dự án của bạn -->
+          <img class="avatar" src="images/avatar.jpg" alt="Ảnh đại diện Đặng Thị Sâm">
+        </div>
+        <h1 class="name">Đặng Thị Sâm</h1>
+        <p class="role">Thực tập sinh công nghệ thông tin</p>
+      </header>
 
-      <nav class="contact">
-        <h2>Liên hệ</h2>
-        <ul>
-          <li><a href="mailto:dangthisam205@email.com">✉ dangthisam205@email.com</a></li>
-          <li><a href="tel:+84 359 902 210">📞 +84 359 902 210</a></li>
-          <li><a href="https://github.com/samdt05" target="_blank">💻 github.com/samdt05</a></li>
-          <li><a href="https://linkedin.com/in/dangthisam205" target="_blank">🔗 linkedin.com/in/dangthisam205</a></li>
-          <li><a href="https://samdt05.github.io" target="_blank">🌐 samdt05.github.io</a></li>
+      <section class="section">
+        <h2 class="section-title">Thông tin cá nhân</h2>
+        <ul class="contact-list">
+          <li><span class="contact-icon">M</span><span>0359902210</span></li>
+          <li><span class="contact-icon">▣</span><span>24/09/2005</span></li>
+          <li><span class="contact-icon">@</span><span>dtc235210049@ictu.edu.vn</span></li>
+          <li><span class="contact-icon">⌖</span><span>Dân Tiến, Thái Nguyên</span></li>
         </ul>
-      </nav>
+      </section>
 
-      <section class="skills">
-        <h2>Kỹ năng</h2>
-        <div class="skill-group">
-          <h3>Frontend</h3>
-          <ul class="tags">
-            <li>HTML5 / CSS3</li>
-            <li>JavaScript (ES6+)</li>
-            <li>TypeScript</li>
-            <li>React / Next.js</li>
-            <li>Vue.js / Nuxt</li>
-            <li>Tailwind CSS</li>
-            <li>Styled Components</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h3>Tools & Workflow</h3>
-          <ul class="tags">
-            <li>Git / GitHub</li>
-            <li>Vite / Webpack</li>
-            <li>ESLint / Prettier</li>
-            <li>Jest / Vitest</li>
-            <li>Cypress</li>
-            <li>Figma</li>
-            <li>CI/CD (GitHub Actions)</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h3>Backend / Other</h3>
-          <ul class="tags">
-            <li>Node.js / Express</li>
-            <li>REST API / GraphQL</li>
-            <li>PostgreSQL / MongoDB</li>
-            <li>Docker</li>
-            <li>AWS / Vercel</li>
-          </ul>
+      <section class="section">
+        <h2 class="section-title">Học vấn</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <strong>Trường Đại học Công nghệ thông tin và truyền thông Thái Nguyên</strong>
+            <p class="date">2023 - Hiện tại</p>
+            <p><strong>Chuyên ngành Công nghệ thông tin</strong></p>
+            <p>GPA hiện tại: 3.69/4.0</p>
+            <p>Trình độ ngoại ngữ: Tiếng Anh cơ bản</p>
+          </div>
         </div>
       </section>
 
-      <section class="languages">
-        <h2>Ngoại ngữ</h2>
-        <ul>
-          <li><span>Tiếng Việt</span> <span class="level">Native</span></li>
-          <li><span>English</span> <span class="level">IELTS 7.0</span></li>
-          <li><span>Japanese</span> <span class="level">N3</span></li>
-        </ul>
+      <section class="section">
+        <h2 class="section-title">Thành tích</h2>
+        <p><strong>2024-2025</strong></p>
+        <p>Đạt danh hiệu sinh viên giỏi</p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Sở thích</h2>
+        <p>Học kỹ năng mới</p>
+        <p>Đọc sách, tìm hiểu công nghệ</p>
+        <p>Làm việc nhóm và phát triển dự án</p>
       </section>
     </aside>
 
-    <!-- Main Content -->
     <main class="main">
-      <section class="summary">
-        <h2>Mục tiêu nghề nghiệp</h2>
+      <section class="section">
+        <h2 class="section-title">Mục tiêu nghề nghiệp</h2>
         <p>
-          Frontend Developer có <strong>3+ năm kinh nghiệm</strong> xây dựng ứng dụng web hiện đại,
-          tập trung vào performance, accessibility và developer experience.
-          Đam mê clean code, component-driven development và luôn cập nhật công nghệ mới.
-          Tìm kiếm vị trí <strong>Senior Frontend / Tech Lead</strong> để đóng góp giá trị thực sự cho sản phẩm.
+          Mong muốn được thực tập trong môi trường chuyên nghiệp để học hỏi kinh nghiệm thực tế,
+          nâng cao kỹ năng làm việc và phát triển bản thân trong lĩnh vực Công nghệ thông tin.
+          Là người có tinh thần trách nhiệm và khả năng thích nghi tốt với môi trường doanh nghiệp,
+          em mong muốn tích lũy kinh nghiệm trong lĩnh vực IT văn phòng, hỗ trợ kỹ thuật.
         </p>
       </section>
 
-      <section class="experience">
-        <h2>Kinh nghiệm làm việc</h2>
-
-        <article class="job">
-          <header>
-            <div>
-              <h3>Senior Frontend Developer</h3>
-              <p class="company">Công ty TNHH TechCorp Việt Nam</p>
-            </div>
-            <time>03/2022 – Nay</time>
-          </header>
-          <ul class="achievements">
-            <li>Dẫn dắt team 4 dev xây dựng <strong>design system</strong> nội bộ (50+ components), giảm 40% thời gian dev UI mới</li>
-            <li>Tối ưu bundle size từ 2.1MB → 680KB (code-splitting, tree-shaking, lazy loading), cải thiện LCP 2.8s → 1.2s</li>
-            <li>Thiết kế architecture micro-frontend với Module Federation, cho phép deploy độc lập các feature</li>
-            <li>Mentor 2 junior dev, thiết lập code review standards, CI/CD pipeline tự động</li>
-            <li>Stack: React, TypeScript, Next.js, Tailwind, Storybook, Jest, Cypress, GitHub Actions</li>
-          </ul>
-        </article>
-
-        <article class="job">
-          <header>
-            <div>
-              <h3>Frontend Developer</h3>
-              <p class="company">Startup Fintech - FinTechVN</p>
-            </div>
-            <time>06/2020 – 02/2022</time>
-          </header>
-          <ul class="achievements">
-            <li>Xây dựng dashboard real-time cho 10k+ users hàng ngày với WebSocket + Redux Toolkit</li>
-            <li>Implement authentication flow (OAuth2, JWT, refresh token, MFA) bảo mật PCI-DSS</li>
-            <li>Chuyển đổi từ Vue 2 → Vue 3 + Composition API, giảm 30% bundle size</li>
-            <li>Thiết lập unit test coverage > 85%, e2e test cho critical user flows</li>
-            <li>Stack: Vue 3, Pinia, Vite, Chart.js, Docker, AWS Amplify</li>
-          </ul>
-        </article>
-
-        <article class="job">
-          <header>
-            <div>
-              <h3>Junior Frontend Developer (Thực tập)</h3>
-              <p class="company">Digital Agency - CreativeMinds</p>
-            </div>
-            <time>01/2020 – 05/2020</time>
-          </header>
-          <ul class="achievements">
-            <li>Phát triển landing page, marketing site cho 10+ client (responsive, SEO-friendly)</li>
-            <li>Học và áp dụng: Semantic HTML, BEM, Sass, GSAP animation, GSAP ScrollTrigger</li>
-            <li>Hỗ trợ setup WordPress theme tùy chỉnh, tích hợp ACF cho content management</li>
-          </ul>
-        </article>
-      </section>
-
-      <section class="projects">
-        <h2>Dự án nổi bật</h2>
-
-        <article class="project">
-          <div class="project-info">
-            <h3><a href="https://github.com/samdt05/task-manager" target="_blank">TaskFlow — Task Management App</a></h3>
-            <p class="desc">Ứng dụng quản lý task real-time cho team, inspiré từ Linear/Notion.</p>
-            <div class="tech">Next.js 14 · TypeScript · Prisma · PostgreSQL · Tailwind · tRPC · NextAuth</div>
-          </div>
-          <ul class="highlights">
-            <li>Drag-and-drop board (dnd-kit), real-time sync với Socket.io</li>
-            <li>Role-based access control (Admin/Member/Viewer), audit log</li>
-            <li>Deploy Vercel + Railway, CI/CD full automated</li>
-          </ul>
-        </article>
-
-        <article class="project">
-          <div class="project-info">
-            <h3><a href="https://github.com/samdt05/ui-kit" target="_blank">UI Kit — Component Library</a></h3>
-            <p class="desc">Thư viện component reusable, accessible (WCAG 2.1 AA), document với Storybook.</p>
-            <div class="tech">React · TypeScript · Styled Components · Storybook · Chromatic · Changesets</div>
-          </div>
-          <ul class="highlights">
-            <li>40+ components: Button, Input, Select, Modal, Table, Tooltip, DatePicker...</li>
-            <li>Themeable (light/dark), RTL support, compound components pattern</li>
-            <li>Publish npm private registry, versioning tự động với Changesets</li>
-          </ul>
-        </article>
-
-        <article class="project">
-          <div class="project-info">
-            <h3><a href="https://github.com/samdt05/ecommerce-pwa" target="_blank">ShopPWA — E-commerce PWA</a></h3>
-            <p class="desc">Progressive Web App thương mại điện tử offline-first, performance 95+ Lighthouse.</p>
-            <div class="tech">Vue 3 · Vite · Pinia · Workbox · IndexedDB · Stripe API</div>
-          </div>
-          <ul class="highlights">
-            <li>Offline cart, background sync khi online lại, push notification</li>
-            <li>Image optimization (WebP, lazy load, blur placeholder)</li>
-            <li>Checkout flow tích hợp Stripe, Apple Pay, Google Pay</li>
-          </ul>
-        </article>
-      </section>
-
-      <section class="education">
-        <h2>Giáo dục</h2>
-        <div class="edu-item">
-          <div>
-            <h3>Kỹ sư Khoa học Máy tính</h3>
-            <p class="school">Trường ĐH CNTT & TT Thái Nguyên (ICTU)</p>
-          </div>
-          <time>2016 – 2020</time>
-        </div>
-        <div class="edu-item">
-          <div>
-            <h3>Chứng chỉ AWS Certified Developer – Associate</h3>
-            <p class="school">Amazon Web Services</p>
-          </div>
-          <time>2023</time>
-        </div>
-        <div class="edu-item">
-          <div>
-            <h3>Chứng chỉ Google UX Design Professional Certificate</h3>
-            <p class="school">Coursera / Google</p>
-          </div>
-          <time>2022</time>
-        </div>
-      </section>
-
-      <section class="activities">
-        <h2>Hoạt động & Giải thưởng</h2>
-        <ul>
-          <li><strong>Top 10</strong> Vietnam Tech Challenge 2023 (Team lead)</li>
-          <li>Speaker tại <strong>React Meetup Hanoi #15</strong>: "Micro-frontend trong thực tế"</li>
-          <li>Contributorを開源: <a href="https://github.com/vuejs/core" target="_blank">vuejs/core</a>, <a href="https://github.com/tailwindlabs/tailwindcss" target="_blank">tailwindcss</a></li>
-          <li>Viết blog technical tại <a href="https://samdt05.github.io" target="_blank">samdt05.github.io</a> (15+ bài, 50k+ views)</li>
+      <section class="section">
+        <h2 class="section-title">Kỹ năng</h2>
+        <ul class="skill-list">
+          <li>Có khả năng hợp tác làm việc nhóm và làm việc độc lập.</li>
+          <li>Chịu được áp lực, thích nghi nhanh.</li>
+          <li>Kiến thức cơ bản về Công nghệ thông tin.</li>
+          <li>Sử dụng thành thạo Word, Excel, PowerPoint.</li>
+          <li>Sử dụng cơ bản ngôn ngữ lập trình C, Java, SQL và công cụ Visual Code, GitHub.</li>
         </ul>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Dự án</h2>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="project-heading">
+              <span>Xây dựng website quản lý cửa hàng bán sữa</span>
+              <span class="date-range">01/2026 - 05/2026</span>
+            </div>
+            <p class="subheading">Trưởng nhóm</p>
+            <p>
+              Quản lý và phối hợp công việc nhóm trong quá trình xây dựng website quản lý cửa hàng
+              bán sữa. Tham gia phân tích và thiết kế hệ thống, kiểm tra dữ liệu, theo dõi tiến độ
+              và hỗ trợ xử lý các vấn đề phát sinh trong dự án.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <div class="project-heading">
+              <span>Lập kế hoạch triển khai hệ thống Quản lý Quan hệ Khách hàng (CRM) cho doanh nghiệp “SME Creative”</span>
+            </div>
+            <p class="date">01/2026 - 04/2026</p>
+            <p class="subheading">Thành viên</p>
+            <p>
+              Tham gia lập kế hoạch triển khai hệ thống Quản lý Quan hệ Khách hàng (CRM) cho doanh
+              nghiệp “SME Creative”. Thực hiện phân tích yêu cầu, lọc và rà soát dữ liệu, phối hợp
+              cùng nhóm hoàn thiện báo cáo dự án.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Hoạt động</h2>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="project-heading">
+              <span>Thành viên CLB nghiên cứu khoa học</span>
+              <span class="date-range">-</span>
+            </div>
+            <p class="subheading">Nhóm học tập</p>
+            <p>
+              Tham gia làm việc nhóm trong các môn học chuyên ngành và báo cáo dự án bài tập lớn.
+              Thường xuyên thảo luận, chia sẻ kiến thức và hỗ trợ các thành viên trong nhóm.
+            </p>
+          </article>
+        </div>
       </section>
     </main>
   </div>
-
-  <footer class="footer">
-    <p>Được xây dựng với HTML, CSS thuần túy — không framework, không JS runtime. Deploy miễn phí trên GitHub Pages.</p>
-    <p><a href="https://github.com/samdt05/mycv" target="_blank">Xem source code</a> • Cập nhật lần cuối: <span id="last-updated"></span></p>
-  </footer>
-
-  <script>
-    document.getElementById('last-updated').textContent = new Date().toLocaleDateString('vi-VN');
-  </script>
 </body>
 </html>
